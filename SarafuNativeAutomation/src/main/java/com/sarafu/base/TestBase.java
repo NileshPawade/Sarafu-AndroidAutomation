@@ -14,12 +14,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 public class TestBase {
 
-	public static AndroidDriver<AndroidElement> driver;
+	public static AndroidDriver<MobileElement> driver;
 	public static Properties prop;
 	public static WebDriverWait wait;
 	public static JavascriptExecutor js;
@@ -41,11 +42,12 @@ public class TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 	}
 	
 
-	@Test
+
 	public static void initialisation() throws MalformedURLException {
 
 		File appDir = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\sarafu\\application\\Sarafu_Test.apk");
@@ -68,9 +70,11 @@ public class TestBase {
         
         capabilities.setCapability("app", appDir.getAbsolutePath());
 
-        driver = new AndroidDriver<AndroidElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);           
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  
+        
+        wait =new WebDriverWait(driver, 25);
 		
 	}
 }
