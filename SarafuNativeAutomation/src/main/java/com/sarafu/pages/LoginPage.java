@@ -36,6 +36,34 @@ public class LoginPage extends TestBase {
 	@AndroidFindBy(xpath="//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]")
 	private AndroidElement signIn;
 
+	@AndroidFindBy(xpath="//android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView[4]")
+	private AndroidElement userNameValidationMsg;
+	
+	@AndroidFindBy(xpath="//android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView[7]")
+	private AndroidElement passwordValidationMsg;
+	
+	@AndroidFindBy(xpath="//android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")
+	private AndroidElement AlertMsg;
+	
+	@AndroidFindBy(xpath="//android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup")
+	private AndroidElement removeAlert;
+	
+	public AndroidElement getUserNameValidationMsg() {
+		return userNameValidationMsg;
+	}
+
+	public AndroidElement getPasswordValidationMsg() {
+		return passwordValidationMsg;
+	}
+
+	public AndroidElement getAlertMsg() {
+		return AlertMsg;
+	}
+
+	public AndroidElement getRemoveAlert() {
+		return removeAlert;
+	}
+
 	public AndroidElement getCountryListTab() {
 		return countryListTab;
 	}

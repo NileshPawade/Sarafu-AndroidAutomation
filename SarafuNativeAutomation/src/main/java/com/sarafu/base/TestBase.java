@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 public class TestBase {
 
@@ -30,7 +31,7 @@ public class TestBase {
 		prop = new Properties();
 
 		File file = new File(
-				System.getProperty("user.dir") + "\\src\\main\\java\\com\\sarafu\\properties\\config.properties");
+				System.getProperty("user.dir") + "\\src\\main\\java\\com\\sarafu\\configuration\\config.properties");
 
 		try {
 			FileInputStream fis = new FileInputStream(file);
@@ -60,6 +61,9 @@ public class TestBase {
          
         // Name of the OS: Android, iOS or FirefoxOS
         capabilities.setCapability("platformName", "Android");
+        
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+
          
         //set the name of the connected device.you have to give same name in both server and the code
         
@@ -75,6 +79,8 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  
         
         wait =new WebDriverWait(driver, 25);
+        
+        js = (JavascriptExecutor) driver;
 		
 	}
 }
